@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Himansa | Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #2563eb;
+            --dark: #1e293b;
+            --light: #f8fafc;
+            --text: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--light);
+        }
+
+        /* Navigation */
+        nav {
+            background: white;
+            padding: 1rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            z-index: 1000;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            margin-left: 20px;
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 5%;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            color: white;
+            text-align: center;
+        }
+
+        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
+        .hero p { font-size: 1.2rem; opacity: 0.9; }
+
+        /* Section Styling */
+        section { padding: 60px 5%; max-width: 1000px; margin: auto; }
+        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 30px; }
+
+        /* Skills Tags */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skill-tag {
+            background: #e2e8f0;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+        }
+
+        /* Project Cards */
+        .project-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+        }
+
+        .project-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            border: 1px solid #e2e8f0;
+        }
+
+        .project-card:hover { transform: translateY(-5px); }
+        .project-card h3 { margin-top: 0; color: var(--primary); }
+        .project-card p { font-size: 0.95rem; }
+        .btn {
+            display: inline-block;
+            margin-top: 15px;
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        footer { text-align: center; padding: 40px; background: white; border-top: 1px solid #e2e8f0; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <div style="font-size: 1.5rem; font-weight: bold;">HIMANSA</div>
+    <div>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact</a>
+    </div>
+</nav>
+
+<header class="hero">
+    <h1>Himansa Siriwardhana</h1>
+    <p>First-Year Student at University of Ruhuna Faculty of Engineering</p>
+</header>
+
+<section id="about">
+    <h2>About Me</h2>
+    <p>I am a first-year Engineering student passionate about the intersection of software development and hardware systems. Currently building a foundation in algorithm design and web technologies while exploring the world of embedded systems.</p>
+</section>
+
+<section id="skills">
+    <h2>Technical Toolkit</h2>
+    <div class="skills-container">
+        <span class="skill-tag">Python (Core)</span>
+        <span class="skill-tag">HTML5 & CSS3</span>
+        <span class="skill-tag">Git & Version Control</span>
+        <span class="skill-tag">Algorithm Basics</span>
+        <span class="skill-tag">Basic Electronics</span>
+    </div>
+</section>
+
+<section id="education">
+    <h2>Education</h2>
+    <div class="project-card">
+        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
+            <div>
+                <h3 style="margin-bottom: 5px;">B.Sc. Engineering (Undergraduate)</h3>
+                <p style="margin: 0; color: var(--primary); font-weight: 600;">University of Ruhuna</p>
+                <p style="font-size: 0.9rem; color: #64748b;">Expected Graduation: 2029</p>
+            </div>
+        </div>
+        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 15px 0;">
+        <div>
+            <h3 style="margin-bottom: 5px;">GCE Advanced Levels</h3>
+            <p style="margin: 0;">Physical Science Stream</p>
+            <p style="font-size: 0.9rem; color: #64748b;">Results: A, A, B | Kalutara Vidyalaya</p>
+        </div>
+    </div>
+</section>
+
+<section id="projects">
+    <h2>Selected Projects</h2>
+    <div class="project-grid">
+        <div class="project-card">
+            <h3>Baby Rose Pre-School</h3>
+            <p>Designed a responsive web presence for an educational institution focusing on clean UI and user accessibility.</p>
+            <a href="https://himansa2005.github.io/baby-rose/" class="btn">Live Demo &rarr;</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Automated ID Generator</h3>
+            <p>Developed a tool to automate ID card creation. Integrated AI-assisted logic to handle dynamic user inputs.</p>
+            <a href="https://himansa2005.github.io/idcard/" class="btn">View Logic &rarr;</a>
+        </div>
+
+         <div class="project-card">
+            <h3>Buisness web page</h3>
+            <p>Created a professional website for a local business, showcasing their services and contact information.</p>
+            <a href="https://himansa2005.github.io/RW-typesettings/" class="btn">Live Demo &rarr;</a>
+        </div>
+
+        <div class="project-card">
+            <h3>Python Logic Suite</h3>
+            <p>A collection of algorithmic challenges and automation scripts developed during my first year of coding.</p>
+            <a href="projects.html" class="btn">Explore Scripts &rarr;</a>
+        </div>
+
+        <div class="project-card">
+    <div style="display: flex; justify-content: space-between;">
+        <h3 style="margin: 0; color: var(--primary);">Technical Team Member</h3>
+        <span style="font-size: 0.8rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 10px;">Event</span>
+    </div>
+    <p style="font-weight: 600; margin-top: 5px;">Rextro Exhibition | University of Ruhuna</p>
+    <p>Managed technical audio-visual setups and real-time troubleshooting for a large-scale university event. Gained experience in project management and complex system coordination.</p>
+    <a href="https://www.linkedin.com/posts/denith-himansa-786865368_universityofruhuna-rextro-engineeringlife-activity-7410351235741954048-MKEq?utm_source=share&utm_medium=member_android&rcm=ACoAAFtAbBYBsmXG6Rl7QFFzFDYYIMCHA-5jVkM" class="btn">View on LinkedIn &rarr;</a>
+</div>
+    </div>
+</section>
+
+<section id="contact" style="text-align: center;">
+    <h2>Get In Touch</h2>
+    <p>Always open to collaboration on open-source projects or engineering discussions.</p>
+    <p><strong>Email:</strong> himansadenith@gmail.com</p>
+    <p><strong>GitHub:</strong> github.com/himansa2005</p>
+</section>
+
+<footer>
+    <p>&copy; 2026 Himansa | Built with Code & Logic</p>
+</footer>
+
+</body>
+</html>
