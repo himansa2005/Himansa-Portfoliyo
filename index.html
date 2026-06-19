@@ -1,21 +1,34 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Himansa | Engineering Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Himansa Siriwardhana | Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --primary: #2563eb;
-            --dark: #1e293b;
+            --primary-hover: #1d4ed8;
+            --dark: #0f172a;
+            --slate: #334155;
             --light: #f8fafc;
-            --text: #334155;
+            --text: #475569;
+            --border: #e2e8f0;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: 'Inter', sans-serif;
-            margin: 0;
             line-height: 1.6;
             color: var(--text);
             background-color: var(--light);
@@ -23,87 +36,238 @@
 
         /* Navigation */
         nav {
-            background: white;
-            padding: 1rem 5%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(8px);
+            padding: 1.2rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: center;
             position: sticky;
             top: 0;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
             z-index: 1000;
         }
 
-        nav a {
-            text-decoration: none;
+        .logo {
+            font-size: 1.25rem;
+            font-weight: 700;
+            letter-spacing: 1px;
             color: var(--dark);
-            margin-left: 20px;
-            font-weight: 600;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--slate);
+            margin-left: 24px;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
         /* Hero Section */
         .hero {
-            padding: 80px 5%;
-            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            padding: 100px 5%;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
             color: white;
             text-align: center;
         }
 
-        .hero h1 { font-size: 2.5rem; margin-bottom: 10px; }
-        .hero p { font-size: 1.2rem; opacity: 0.9; }
+        .hero h1 {
+            font-size: 2.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
 
-        /* Section Styling */
-        section { padding: 60px 5%; max-width: 1000px; margin: auto; }
-        h2 { border-left: 5px solid var(--primary); padding-left: 15px; margin-bottom: 30px; }
+        .hero p {
+            font-size: 1.15rem;
+            color: #94a3b8;
+            max-width: 600px;
+            margin: 0 auto;
+            font-weight: 400;
+        }
+
+        /* Section General Styling */
+        section {
+            padding: 80px 5%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            color: var(--dark);
+            border-left: 4px solid var(--primary);
+            padding-left: 16px;
+            margin-bottom: 32px;
+            font-weight: 600;
+        }
+
+        #about p {
+            font-size: 1.05rem;
+            max-width: 800px;
+        }
 
         /* Skills Tags */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 10px; }
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
         .skill-tag {
-            background: #e2e8f0;
-            padding: 8px 15px;
+            background: white;
+            padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: 500;
+            color: var(--slate);
+            border: 1px solid var(--border);
+            box-shadow: 0 1px 2px rgba(0,0,0,0.02);
         }
 
-        /* Project Cards */
+        /* Education Layout */
+        .edu-wrapper {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,0.02);
+        }
+
+        .edu-block h3 {
+            color: var(--dark);
+            font-size: 1.2rem;
+            margin-bottom: 4px;
+        }
+
+        .edu-institution {
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .edu-meta {
+            font-size: 0.9rem;
+            color: #64748b;
+        }
+
+        .divider {
+            border: 0;
+            border-top: 1px solid var(--border);
+            margin: 24px 0;
+        }
+
+        /* Project & Experience Cards */
         .project-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
         }
 
         .project-card {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            transition: transform 0.2s;
-            border: 1px solid #e2e8f0;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+            transition: transform 0.2s, box-shadow 0.2s;
+            border: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
 
-        .project-card:hover { transform: translateY(-5px); }
-        .project-card h3 { margin-top: 0; color: var(--primary); }
-        .project-card p { font-size: 0.95rem; }
+        .project-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05);
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .project-card h3 {
+            color: var(--dark);
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .project-card p {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .tag-badge {
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: #dcfce7;
+            color: #15803d;
+            padding: 4px 10px;
+            border-radius: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
         .btn {
-            display: inline-block;
-            margin-top: 15px;
+            display: inline-flex;
+            align-items: center;
             color: var(--primary);
             text-decoration: none;
             font-weight: 600;
             font-size: 0.9rem;
+            transition: color 0.2s;
+            margin-top: auto;
         }
 
-        footer { text-align: center; padding: 40px; background: white; border-top: 1px solid #e2e8f0; }
+        .btn:hover {
+            color: var(--primary-hover);
+        }
+
+        /* Contact Details */
+        .contact-content {
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            margin: 12px 0;
+            font-size: 1.05rem;
+        }
+
+        .contact-content strong {
+            color: var(--dark);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            background: white;
+            border-top: 1px solid var(--border);
+            font-size: 0.9rem;
+            color: #64748b;
+        }
     </style>
 </head>
 <body>
 
 <nav>
-    <div style="font-size: 1.5rem; font-weight: bold;">HIMANSA</div>
-    <div>
+    <div class="logo">HIMANSA</div>
+    <div class="nav-links">
         <a href="#about">About</a>
         <a href="#skills">Skills</a>
+        <a href="#education">Education</a>
         <a href="#projects">Projects</a>
         <a href="#contact">Contact</a>
     </div>
@@ -111,12 +275,12 @@
 
 <header class="hero">
     <h1>Himansa Siriwardhana</h1>
-    <p>First-Year Student at University of Ruhuna Faculty of Engineering</p>
+    <p>Engineering Undergraduate at University of Ruhuna | Faculty of Engineering</p>
 </header>
 
 <section id="about">
     <h2>About Me</h2>
-    <p>I am a first-year Engineering student passionate about the intersection of software development and hardware systems. Currently building a foundation in algorithm design and web technologies while exploring the world of embedded systems.</p>
+    <p>I am a first-year Engineering student passionate about the intersection of software development and hardware systems. Currently building a solid foundation in algorithm design and web technologies while exploring the implementation of embedded software architectures.</p>
 </section>
 
 <section id="skills">
@@ -125,79 +289,91 @@
         <span class="skill-tag">Python (Core)</span>
         <span class="skill-tag">HTML5 & CSS3</span>
         <span class="skill-tag">Git & Version Control</span>
-        <span class="skill-tag">Algorithm Basics</span>
-        <span class="skill-tag">Basic Electronics</span>
+        <span class="skill-tag">Algorithm Design Basics</span>
+        <span class="skill-tag">Basic Electronics & Circuitry</span>
     </div>
 </section>
 
 <section id="education">
     <h2>Education</h2>
-    <div class="project-card">
-        <div style="display: flex; justify-content: space-between; align-items: flex-start;">
-            <div>
-                <h3 style="margin-bottom: 5px;">B.Sc. Engineering (Undergraduate)</h3>
-                <p style="margin: 0; color: var(--primary); font-weight: 600;">University of Ruhuna</p>
-                <p style="font-size: 0.9rem; color: #64748b;">Expected Graduation: 2029</p>
-            </div>
+    <div class="edu-wrapper">
+        <div class="edu-block">
+            <h3>B.Sc. Engineering (Hons) Undergraduate</h3>
+            <p class="edu-institution">University of Ruhuna</p>
+            <p class="edu-meta">Expected Graduation: 2029</p>
         </div>
-        <hr style="border: 0; border-top: 1px solid #e2e8f0; margin: 15px 0;">
-        <div>
-            <h3 style="margin-bottom: 5px;">GCE Advanced Levels</h3>
-            <p style="margin: 0;">Physical Science Stream</p>
-            <p style="font-size: 0.9rem; color: #64748b;">Results: A, A, B | Kalutara Vidyalaya</p>
+        <hr class="divider">
+        <div class="edu-block">
+            <h3>GCE Advanced Level</h3>
+            <p class="edu-institution" style="color: var(--slate);">Physical Science Stream</p>
+            <p class="edu-meta">Results: A, A, B | Kalutara Vidyalaya</p>
         </div>
     </div>
 </section>
 
 <section id="projects">
-    <h2>Selected Projects</h2>
+    <h2>Selected Projects & Experience</h2>
     <div class="project-grid">
         <div class="project-card">
-            <h3>Baby Rose Pre-School</h3>
-            <p>Designed a responsive web presence for an educational institution focusing on clean UI and user accessibility.</p>
+            <div>
+                <h3>Baby Rose Pre-School</h3>
+                <p style="margin-top: 10px;">Designed a highly responsive web presence for an educational institution, focusing on modern UI design patterns and clean user accessibility.</p>
+            </div>
             <a href="https://himansa2005.github.io/baby-rose/" class="btn">Live Demo &rarr;</a>
         </div>
 
         <div class="project-card">
-            <h3>Automated ID Generator</h3>
-            <p>Developed a tool to automate ID card creation. Integrated AI-assisted logic to handle dynamic user inputs.</p>
-            <a href="https://himansa2005.github.io/idcard/" class="btn">View Logic &rarr;</a>
+            <div>
+                <h3>Automated ID Generator</h3>
+                <p style="margin-top: 10px;">Developed an automation tool to programmatically generate ID cards. Integrated dynamic conditional logic to accurately render structured user inputs.</p>
+            </div>
+            <a href="https://himansa2005.github.io/idcard/" class="btn">View Architecture &rarr;</a>
         </div>
 
-         <div class="project-card">
-            <h3>Buisness web page</h3>
-            <p>Created a professional website for a local business, showcasing their services and contact information.</p>
+        <div class="project-card">
+            <div>
+                <h3>Commercial Web Platform</h3>
+                <p style="margin-top: 10px;">Created a clean, lightweight professional website optimized for a local enterprise to highlight localized services and handle client engagement.</p>
+            </div>
             <a href="https://himansa2005.github.io/RW-typesettings/" class="btn">Live Demo &rarr;</a>
         </div>
 
         <div class="project-card">
-            <h3>Python Logic Suite</h3>
-            <p>A collection of algorithmic challenges and automation scripts developed during my first year of coding.</p>
+            <div>
+                <h3>Python Logic Suite</h3>
+                <p style="margin-top: 10px;">A compiled library of algorithmic solutions, computational geometry, and small automation scripts built during my initial engineering studies.</p>
+            </div>
             <a href="projects.html" class="btn">Explore Scripts &rarr;</a>
         </div>
 
         <div class="project-card">
-    <div style="display: flex; justify-content: space-between;">
-        <h3 style="margin: 0; color: var(--primary);">Technical Team Member</h3>
-        <span style="font-size: 0.8rem; background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 10px;">Event</span>
-    </div>
-    <p style="font-weight: 600; margin-top: 5px;">Rextro Exhibition | University of Ruhuna</p>
-    <p>Managed technical audio-visual setups and real-time troubleshooting for a large-scale university event. Gained experience in project management and complex system coordination.</p>
-    <a href="https://www.linkedin.com/posts/denith-himansa-786865368_universityofruhuna-rextro-engineeringlife-activity-7410351235741954048-MKEq?utm_source=share&utm_medium=member_android&rcm=ACoAAFtAbBYBsmXG6Rl7QFFzFDYYIMCHA-5jVkM" class="btn">View on LinkedIn &rarr;</a>
-</div>
+            <div>
+                <div class="card-header">
+                    <h3>Technical Team Member</h3>
+                    <span class="tag-badge">Event</span>
+                </div>
+                <p style="font-weight: 600; color: var(--dark); margin-bottom: 6px;">Rextro Exhibition | University of Ruhuna</p>
+                <p>Managed technical audio-visual deployments and executed real-time troubleshooting routines during a premier university-wide event. Developed collaborative project management workflows.</p>
+            </div>
+            <a href="https://www.linkedin.com/posts/denith-himansa-786865368_universityofruhuna-rextro-engineeringlife-activity-7410351235741954048-MKEq" class="btn">View Endorsement &rarr;</a>
+        </div>
     </div>
 </section>
 
-<section id="contact" style="text-align: center;">
-    <h2>Get In Touch</h2>
-    <p>Always open to collaboration on open-source projects or engineering discussions.</p>
-    <p><strong>Email:</strong> himansadenith@gmail.com</p>
-    <p><strong>GitHub:</strong> github.com/himansa2005</p>
+<section id="contact">
+    <div class="contact-content">
+        <h2 style="border-left: none; padding-left: 0; text-align: center; margin-bottom: 20px;">Get In Touch</h2>
+        <p style="text-align: center; margin-bottom: 24px;">I am always open to exploring academic collaborations, contributing to open-source systems, or discussing core engineering topics.</p>
+        <p><strong>Email:</strong> himansadenith@gmail.com</p>
+        <p><strong>GitHub:</strong> github.com/himansa2005</p>
+    </div>
 </section>
 
 <footer>
-    <p>&copy; 2026 Himansa | Built with Code & Logic</p>
+    <p>&copy; 2026 Himansa Siriwardhana | Form and Logic</p>
 </footer>
 
 </body>
 </html>
+
+```
