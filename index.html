@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +14,43 @@
             --light: #f8fafc;
             --text: #475569;
             --border: #e2e8f0;
+
+            /* UI tokens */
+            --bg: var(--light);
+            --card-bg: #ffffff;
+            --muted: #94a3b8;
+            --nav-bg: rgba(255,255,255,0.95);
+            --footer-bg: #ffffff;
+            --hero-bg: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            --hero-text: #ffffff;
+            --tag-bg: #ffffff;
+            --event-bg: #dcfce7;
+            --event-color: #15803d;
+            --cert-bg: #fef3c7;
+            --cert-color: #92400e;
+        }
+
+        .dark {
+            --primary: #60a5fa;
+            --primary-hover: #3b82f6;
+            --dark: #e6eefc;
+            --slate: #cbd5e1;
+            --light: #0b1220;
+            --text: #cbd5e1;
+            --border: rgba(255,255,255,0.06);
+
+            --bg: #071029;
+            --card-bg: #071a2b;
+            --muted: #94a3b8;
+            --nav-bg: rgba(10,16,25,0.6);
+            --footer-bg: #051021;
+            --hero-bg: linear-gradient(135deg, #071029 0%, #0b2030 100%);
+            --hero-text: #e6eefc;
+            --tag-bg: rgba(255,255,255,0.03);
+            --event-bg: rgba(34,197,94,0.08);
+            --event-color: #86efac;
+            --cert-bg: rgba(245,158,11,0.08);
+            --cert-color: #fbbf24;
         }
 
         * {
@@ -31,12 +67,14 @@
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
             color: var(--text);
-            background-color: var(--light);
+            background-color: var(--bg);
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
         /* Navigation */
         nav {
-            background: rgba(255, 255, 255, 0.95);
+            background: var(--nav-bg);
             backdrop-filter: blur(8px);
             padding: 1.2rem 5%;
             display: flex;
@@ -49,19 +87,24 @@
         }
 
         .logo {
-            font-size: 1.25rem;
+            font-size: 1.125rem;
             font-weight: 700;
             letter-spacing: 1px;
             color: var(--dark);
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .nav-links a {
             text-decoration: none;
             color: var(--slate);
-            margin-left: 24px;
-            font-weight: 500;
+            margin-left: 20px;
+            font-weight: 600;
             font-size: 0.95rem;
-            transition: color 0.2s;
+            transition: color 0.18s ease, transform 0.12s ease;
+            padding: 6px 8px;
+            border-radius: 8px;
         }
 
         .nav-links a:hover {
@@ -71,13 +114,13 @@
         /* Hero Section */
         .hero {
             padding: 100px 5%;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
-            color: white;
+            background: var(--hero-bg);
+            color: var(--hero-text);
             text-align: center;
         }
 
         .hero h1 {
-            font-size: 2.75rem;
+            font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 12px;
             letter-spacing: -0.5px;
@@ -85,10 +128,46 @@
 
         .hero p {
             font-size: 1.15rem;
-            color: #94a3b8;
+            color: var(--muted);
             max-width: 600px;
             margin: 0 auto;
             font-weight: 400;
+        }
+
+        /* Hero layout with avatar */
+        .hero-inner {
+            display: flex;
+            align-items: center;
+            gap: 22px;
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: left;
+        }
+
+        .avatar {
+            width: 96px;
+            height: 96px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary), var(--primary-hover));
+            color: white;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 1.25rem;
+            box-shadow: 0 6px 18px rgba(2,6,23,0.12);
+            flex: 0 0 auto;
+            overflow: hidden;
+        }
+
+        .avatar img { width:100%; height:100%; object-fit:cover; display:block; border-radius:50%; }
+
+        .hero-text { flex: 1 1 auto; }
+
+        @media (max-width: 700px) {
+            .hero-inner { flex-direction: column; gap: 14px; text-align: center; }
+            .avatar { width: 84px; height: 84px; }
+            .hero h1 { font-size: 2rem; }
         }
 
         /* Section General Styling */
@@ -120,7 +199,7 @@
         }
 
         .skill-tag {
-            background: white;
+            background: var(--tag-bg);
             padding: 8px 18px;
             border-radius: 20px;
             font-size: 0.9rem;
@@ -132,7 +211,7 @@
 
         /* Education Layout */
         .edu-wrapper {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
             border: 1px solid var(--border);
@@ -153,7 +232,7 @@
 
         .edu-meta {
             font-size: 0.9rem;
-            color: #64748b;
+            color: var(--muted);
         }
 
         .divider {
@@ -170,7 +249,7 @@
         }
 
         .project-card {
-            background: white;
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
@@ -208,12 +287,20 @@
         .tag-badge {
             font-size: 0.75rem;
             font-weight: 600;
-            background: #dcfce7;
-            color: #15803d;
             padding: 4px 10px;
             border-radius: 12px;
             text-transform: uppercase;
             letter-spacing: 0.5px;
+        }
+
+        .tag-badge.event {
+            background: var(--event-bg);
+            color: var(--event-color);
+        }
+
+        .tag-badge.cert {
+            background: var(--cert-bg);
+            color: var(--cert-color);
         }
 
         .btn {
@@ -233,7 +320,7 @@
 
         /* Contact Details */
         .contact-content {
-            background: white;
+            background: var(--card-bg);
             padding: 40px;
             border-radius: 12px;
             border: 1px solid var(--border);
@@ -253,29 +340,41 @@
         footer {
             text-align: center;
             padding: 40px;
-            background: white;
+            background: var(--footer-bg);
             border-top: 1px solid var(--border);
             font-size: 0.9rem;
-            color: #64748b;
+            color: var(--muted);
         }
     </style>
 </head>
 <body>
 
-<nav>
-    <div class="logo">HIMANSA</div>
-    <div class="nav-links">
-        <a href="#about">About</a>
-        <a href="#skills">Skills</a>
-        <a href="#education">Education</a>
-        <a href="#projects">Projects</a>
-        <a href="#contact">Contact</a>
-    </div>
-</nav>
+    <nav>
+        <div class="logo">HIMANSA</div>
+        <div style="display:flex; align-items:center; gap: 12px;">
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#education">Education</a>
+                <a href="#projects">Projects</a>
+                <a href="#contact">Contact</a>
+            </div>
+            <select id="theme-select" class="theme-picker" aria-label="Theme selector" style="margin-left:12px;padding:6px 8px;border-radius:8px;border:1px solid transparent;background:transparent;color:var(--slate);font-weight:600;">
+                <option value="system">System</option>
+                <option value="light">Light</option>
+                <option value="dark">Dark</option>
+            </select>
+        </div>
+    </nav>
 
 <header class="hero">
-    <h1>Himansa Siriwardhana</h1>
-    <p>Engineering Undergraduate at University of Ruhuna | Faculty of Engineering</p>
+    <div class="hero-inner">
+        <div class="avatar" id="avatar">HS</div>
+        <div class="hero-text">
+            <h1>Himansa Siriwardhana</h1>
+            <p>Engineering Undergraduate at University of Ruhuna | Faculty of Engineering</p>
+        </div>
+    </div>
 </header>
 
 <section id="about">
@@ -350,9 +449,9 @@
             <div>
                 <div class="card-header">
                     <h3>Technical Team Member</h3>
-                    <span class="tag-badge">Event</span>
+                    <span class="tag-badge event">Event</span>
                 </div>
-                <p style="font-weight: 600; color: var(--dark); margin-bottom: 6px;">Rextro Exhibition | University of Ruhuna</p>
+                <p style="font-weight: 600; color: var(--dark); margin-bottom: 6px;">ReXtro Exhibition | University of Ruhuna</p>
                 <p>Managed technical audio-visual deployments and executed real-time troubleshooting routines during a premier university-wide event. Developed collaborative project management workflows.</p>
             </div>
             <a href="https://www.linkedin.com/posts/denith-himansa-786865368_universityofruhuna-rextro-engineeringlife-activity-7410351235741954048-MKEq" class="btn">View Endorsement &rarr;</a>
@@ -371,7 +470,7 @@
                     <li><strong>Contributor:</strong> Music & zone decoration (Entertainment)</li>
                 </ul>
             </div>
-            <a href="7011 (1).pdf" target="_blank" class="btn">View Document &rarr;</a>
+            <span class="btn" style="color: var(--slate); cursor: default;">Issued by Prof. H.C.P. Karunasena</span>
         </div>
     </div>
 </section>
@@ -389,7 +488,35 @@
     <p>&copy; 2026 Himansa Siriwardhana | Form and Logic</p>
 </footer>
 
+<script>
+    (function(){
+        const select = document.getElementById('theme-select');
+        const root = document.documentElement;
+
+        function applyTheme(theme){
+            if(theme === 'system'){
+                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+                theme = prefersDark ? 'dark' : 'light';
+            }
+            if(theme === 'dark') root.classList.add('dark'); else root.classList.remove('dark');
+            select.value = localStorage.getItem('site-theme') || select.value;
+        }
+
+        const saved = localStorage.getItem('site-theme') || 'system';
+        select.value = saved;
+        applyTheme(saved);
+
+        select.addEventListener('change', (e)=>{
+            const val = e.target.value;
+            localStorage.setItem('site-theme', val);
+            applyTheme(val);
+        });
+
+        window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', ()=>{
+            if((localStorage.getItem('site-theme')||'system') === 'system') applyTheme('system');
+        });
+    })();
+</script>
+
 </body>
 </html>
-
-```
